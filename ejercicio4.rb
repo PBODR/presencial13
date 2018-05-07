@@ -1,26 +1,26 @@
 
 personas = ["Carolina", "Alejandro", "Maria Jesús", "Valentín"]
 edades = [32, 28, 41, 19]
-#1Se pide generar un hash con la información:
-#personas_hash = {"Carolina": 32, "Alejandro":28, "María Jesús":41, "Valentín":19}
 
-#2 Crear un método que reciba el hash y devuelva el promedio de las edades del hash pasado como argumento.
+#para pasar de strings a simbolos y que sean elementos unicos
+personas_sym = []
 
-#personas key ; edades value
-
-#intento = Hash[personas.map {|key, value| [key.to_sym]}]#, edades.map {|key, value| [value]}]
-
-grupo = Hash[personas.zip(edades)]
-grupo2 = grupo.each {|key, value| key.to_sym}
-
-grupo2.each {|key, value| puts "#{key} tiene #{value} años"}
-#[edades.map {|value| [value]}]
-def promedio (array)
-  suma = 0
-  array.each do |edad|
-    suma+=edad
-  end
-  suma / array.count.to_i
+personas.each do |s|
+  personas_sym.push(s.to_sym)
 end
 
-puts  "Y el promedio de las edades es : #{promedio (edades)}"
+#para pasar ambos array a hash como key y value
+personas_hash = Hash[personas_sym.zip(edades)]
+
+personas_hash.each {|key, value| puts "#{key} tiene #{value} años"}
+
+# para sacar el promedio de edades del hash(value)
+def promedio (edad)
+  suma = 0
+  edad.each_value do |value|
+    suma+=value
+  end
+  suma / edad.count.to_i
+end
+
+puts  "Y el promedio de las edades es : #{promedio (personas_hash)}"
