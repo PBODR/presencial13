@@ -12,16 +12,16 @@ puts 'Ingresa 5 Si deseas ver el item que tiene el mayor stock'
 puts 'Ingresa 6 si quieres consultar si un item existe'
 puts 'Ingresa 7 si ya terminaste'
 
-choice = gets.chomp
-  while  choice != 7
+choice = gets.chomp.to_i
+  while  (opcion<1 || opcion>7)
     puts 'Ingresa una opción válida'
-    choice = gets.chomp
+    choice = gets.chomp.to_i
     case choice
     #Si el usuario ingresa 1, podrá agregar un item y su stock en un solo string y agregarlo al hash. Para separar el nombre del stock el usuario debe utilizar una coma.
     #Ejemplo del input: 'Pendrives, 100'
       when '1'
         puts 'Qué item y stock deseas agregar. Debes ingresarlo asi: item, stock'
-        dato = gets.chomp.split(",")
+        dato = gets.chomp.split(", ")
         new_item = dato[0].to_sym
         new_stock = dato[1].to_i
 
