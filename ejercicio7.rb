@@ -86,6 +86,7 @@ choice = gets.chomp.to_i
       else
         puts 'Ese item no existe'
       end
+
     when 7
       puts 'Ya saliste'
 
